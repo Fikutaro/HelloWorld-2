@@ -5,30 +5,43 @@
 #include <string>
 using namespace std;
 
-class Neko
+class Rocket
 {
-	string name;
+	int nenryo;
+	int sokudo;
 public:
-	Neko(string);
-	void naku() const;	
+	Rocket(int x);
+	void kasoku();
 };
 
-Neko::Neko(string s) :name(s) {}
+Rocket::Rocket(int x) :nenryo(x), sokudo(0) {}
 
-void Neko::naku() const {
-	cout << "にゃあおらは" << name << "だ" << endl;
+void Rocket::kasoku()
+{
+	if (nenryo >= 2) {
+		sokudo += 2;
+		nenryo -= 2;
+		cout << "現在の燃料は" << nenryo << "です" << endl;
+		cout << "現在の速度は" << sokudo << "です" << endl;
+	}
+	else {
+		cout << "燃料切れです" << endl;
+	}
 }
 
 int main()
 {
-	string s;
-	cout << "ねこを作ります。名前を入力。。。" << endl;
-	cin >> s;
-	Neko dora(s);
-	cout << "あなたの名付けたねこがつくられた" << endl;
-	cout << "ねこが鳴きます" << endl;
-
-	dora.naku();
+	cout << "ロケットを作ります。燃料を入力" << endl;
+	int n;
+	cin >> n;
+	Rocket ohtori(n);
+	cout << "加速します" << endl;
+	ohtori.kasoku();
+	cout << "また、加速します。" << endl;
+	ohtori.kasoku();
+	cout << "またまた、加速してみます。" << endl;
+	ohtori.kasoku();
+	cout << "鳳号の冒険は終わった。" << endl;
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
