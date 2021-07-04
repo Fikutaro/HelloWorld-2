@@ -41,7 +41,7 @@ int main()
 	ohtori.kasoku();
 	cout << "またまた、加速してみます。" << endl;
 	ohtori.kasoku();
-	cout << "鳳号の冒険は終わった。" << endl;
+	cout << "鳳号の冒険は終わったんだ。" << endl;
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
