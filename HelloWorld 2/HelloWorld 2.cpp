@@ -2,46 +2,40 @@
 //
 
 #include <iostream>
-#include <string>
 using namespace std;
 
-class Rocket
+class Glass
 {
-	int nenryo;
-	int sokudo;
+	int nakami;
 public:
-	Rocket(int x);
-	void kasoku();
+	Glass(int x) : nakami(x) {};
+	void dasu(int);
 };
 
-Rocket::Rocket(int x) :nenryo(x), sokudo(0) {}
 
-void Rocket::kasoku()
-{
-	if (nenryo >= 2) {
-		sokudo += 2;
-		nenryo -= 2;
-		cout << "現在の燃料は" << nenryo << "です" << endl;
-		cout << "現在の速度は" << sokudo << "です" << endl;
+
+void Glass::dasu(int x){
+	if (nakami >= x) {
+		nakami -= x;
+		cout << "水を出した" << endl;
+		cout << "現在コップの中身は" << nakami << "です" << endl;
 	}
 	else {
-		cout << "燃料切れです" << endl;
+		cout << "そんなにみずはない。" << endl;
+		cout << "後は" << nakami << "だけ。" << endl;
 	}
 }
 
 int main()
 {
-	cout << "ロケットを作ります。燃料を入力" << endl;
-	int n;
-	cin >> n;
-	Rocket ohtori(n);
-	cout << "加速します" << endl;
-	ohtori.kasoku();
-	cout << "また、加速します。" << endl;
-	ohtori.kasoku();
-	cout << "またまた、加速してみます。" << endl;
-	ohtori.kasoku();
-	cout << "鳳号の冒険は終わったんだ。" << endl;
+	int x;
+	cout << "コップ生成。最初の水は？" << endl;
+	cin >> x;
+	Glass glass(x);
+	cout << "さあ、glassから水を出します。いくら出しますか。入力してください。" << endl;
+	cin >> x;        //上のxを使いまわしている
+	glass.dasu(x);
+	cout << "終了" << endl;
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
